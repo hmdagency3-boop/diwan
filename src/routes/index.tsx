@@ -10,9 +10,9 @@ import live4 from "@/assets/live4.jpg";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "لايفي — بثوث مباشرة ترفيهية" },
+      { title: "Diwan — بثوث مباشرة ترفيهية" },
       { name: "description", content: "تابع أحلى البثوث المباشرة: غناء، ألعاب، دردشة وحفلات DJ لحظة بلحظة." },
-      { property: "og:title", content: "لايفي — بثوث مباشرة ترفيهية" },
+      { property: "og:title", content: "Diwan — بثوث مباشرة ترفيهية" },
       { property: "og:description", content: "تابع أحلى البثوث المباشرة لحظة بلحظة." },
     ],
   }),
@@ -42,7 +42,7 @@ function Index() {
           <div>
             <p className="text-sm text-muted-foreground">أهلاً يوسف 👋</p>
             <h1 className="font-display text-3xl font-extrabold tracking-tight">
-              لايفي<span className="text-primary">.</span>
+              Diwan<span className="text-primary">.</span>
             </h1>
           </div>
           <div className="flex gap-2">
