@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Bell, Search, Eye, Home,  MessageCircle, User, Flame, Megaphone } from "lucide-react";
+import { Bell, Search, Eye,  Flame, Megaphone } from "lucide-react";
+import { BottomNav } from "@/components/BottomNav";
 import live1 from "@/assets/live1.jpg";
 import live2 from "@/assets/live2.jpg";
 import live3 from "@/assets/live3.jpg";
@@ -94,13 +95,7 @@ function Index() {
           ))}
         </section>
 
-        <footer className="fixed bottom-4 left-1/2 w-[calc(100%-2rem)] max-w-[24rem] -translate-x-1/2 md:absolute">
-          <div className="flex items-center justify-around rounded-full border bg-card/90 px-3 py-2 shadow-soft backdrop-blur">
-            <Tab active label="الرئيسية"><Home className="size-5" /></Tab>
-            <Tab label="دردشة"><MessageCircle className="size-5" /></Tab>
-            <Tab label="أنا"><User className="size-5" /></Tab>
-          </div>
-        </footer>
+        <BottomNav />
       </main>
     </div>
   );
@@ -123,14 +118,6 @@ function IconBtn({ children, dot }: { children: React.ReactNode; dot?: boolean }
   );
 }
 
-function Tab({ children, active, label }: { children: React.ReactNode; active?: boolean; label: string }) {
-  return (
-    <button className={`flex flex-1 flex-col items-center gap-0.5 py-1 text-[11px] font-semibold ${active ? "text-primary" : "text-muted-foreground"}`}>
-      {children}
-      {label}
-    </button>
-  );
-}
 
 const banners = [
   { img: live4, tag: "حدث رسمي", title: "مهرجان الخميس الكبير", sub: "جوائز وهدايا لأقوى المضيفين" },
