@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
-import { Bell, Search, Eye, Home, Compass, Plus, MessageCircle, User, Flame, Crown } from "lucide-react";
+import { Bell, Search, Eye, Home,  MessageCircle, User, Flame, Crown } from "lucide-react";
 import live1 from "@/assets/live1.jpg";
 import live2 from "@/assets/live2.jpg";
 import live3 from "@/assets/live3.jpg";
@@ -104,13 +104,9 @@ function Index() {
 
         <footer className="fixed bottom-4 left-1/2 w-[calc(100%-2rem)] max-w-[24rem] -translate-x-1/2 md:absolute">
           <div className="flex items-center justify-around rounded-full border bg-card/90 px-3 py-2 shadow-soft backdrop-blur">
-            <Tab active><Home className="size-5" /></Tab>
-            <Tab><Compass className="size-5" /></Tab>
-            <button aria-label="ابدأ بث" className="-mt-8 grid size-14 place-items-center rounded-full bg-brand text-primary-foreground shadow-soft">
-              <Plus className="size-7" />
-            </button>
-            <Tab><MessageCircle className="size-5" /></Tab>
-            <Tab><User className="size-5" /></Tab>
+            <Tab active label="الرئيسية"><Home className="size-5" /></Tab>
+            <Tab label="دردشة"><MessageCircle className="size-5" /></Tab>
+            <Tab label="أنا"><User className="size-5" /></Tab>
           </div>
         </footer>
       </main>
@@ -135,10 +131,11 @@ function IconBtn({ children, dot }: { children: React.ReactNode; dot?: boolean }
   );
 }
 
-function Tab({ children, active }: { children: React.ReactNode; active?: boolean }) {
+function Tab({ children, active, label }: { children: React.ReactNode; active?: boolean; label: string }) {
   return (
-    <button className={`grid size-11 place-items-center rounded-full ${active ? "text-primary" : "text-muted-foreground"}`}>
+    <button className={`flex flex-1 flex-col items-center gap-0.5 py-1 text-[11px] font-semibold ${active ? "text-primary" : "text-muted-foreground"}`}>
       {children}
+      {label}
     </button>
   );
 }
