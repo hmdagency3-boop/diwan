@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { Bell, Search, Eye, Home,  MessageCircle, User, Flame, Crown } from "lucide-react";
+import { useEffect, useState } from "react";
+import { Bell, Search, Eye, Home,  MessageCircle, User, Flame, Megaphone } from "lucide-react";
 import live1 from "@/assets/live1.jpg";
 import live2 from "@/assets/live2.jpg";
 import live3 from "@/assets/live3.jpg";
@@ -61,15 +61,7 @@ function Index() {
           ))}
         </section>
 
-        <section className="mx-5 mt-6 relative overflow-hidden rounded-3xl shadow-soft">
-          <img src={live4} alt="بث مميز" width={768} height={1024} className="h-52 w-full object-cover" />
-          <div className="absolute inset-0 bg-media-fade" />
-          <LiveBadge className="absolute top-3 right-3" />
-          <div className="absolute bottom-4 right-4 left-4 text-on-media">
-            <p className="flex items-center gap-1 text-xs font-semibold"><Crown className="size-4 text-accent" /> البث الأكثر مشاهدة</p>
-            <h2 className="font-display text-xl font-bold">بارتي الخميس مع DJ كريم</h2>
-          </div>
-        </section>
+        <BannerCarousel />
 
         <nav className="no-scrollbar mt-6 flex gap-2 overflow-x-auto px-5">
           {categories.map((c) => (
@@ -137,5 +129,44 @@ function Tab({ children, active, label }: { children: React.ReactNode; active?: 
       {children}
       {label}
     </button>
+  );
+}
+
+const banners = [
+  { img: live4, tag: "حدث رسمي", title: "مهرجان الخميس الكبير", sub: "جوائز وهدايا لأقوى المضيفين" },
+  { img: live1, tag: "مسابقة", title: "نجم الغناء ٢٠٢٦", sub: "سجّل دلوقتي وابدأ بثك" },
+  { img: live2, tag: "بطولة", title: "بطولة الجيمرز الشهرية", sub: "جائزة ١٠٠ ألف ماسة" },
+];
+
+function BannerCarousel() {
+  const [i, setI] = useState(0);
+  useEffect(() => {
+    const t = setInterval(() => setI((v) => (v + 1) % banners.length), 4000);
+    return () => clearInterval(t);
+  }, []);
+  return (
+    <section className="mx-5 mt-6">
+      <div className="relative h-44 overflow-hidden rounded-3xl shadow-soft">
+        {banners.map((b, idx) => (
+          <div key={idx} className={`absolute inset-0 transition-opacity duration-700 ${idx === i ? "opacity-100" : "opacity-0 pointer-events-none"}`}>
+            <img src={b.img} alt={b.title} width={768} height={1024} className="h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-media-fade" />
+            <span className="absolute top-3 right-3 flex items-center gap-1 rounded-full bg-brand px-2.5 py-1 text-[11px] font-bold text-primary-foreground">
+              <Megaphone className="size-3" /> {b.tag}
+            </span>
+            <div className="absolute bottom-4 right-4 left-4 text-on-media">
+              <h2 className="font-display text-xl font-bold leading-tight">{b.title}</h2>
+              <p className="text-xs opacity-85">{b.sub}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+      <div className="mt-2.5 flex justify-center gap-1.5">
+        {banners.map((_, idx) => (
+          <button key={idx} aria-label={`بانر ${idx + 1}`} onClick={() => setI(idx)}
+            className={`h-1.5 rounded-full transition-all ${idx === i ? "w-6 bg-primary" : "w-1.5 bg-border"}`} />
+        ))}
+      </div>
+    </section>
   );
 }
