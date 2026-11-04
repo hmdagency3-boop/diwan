@@ -88,7 +88,7 @@ function MePage() {
           <div className="mt-4">
             <div className="mb-1.5 flex items-center justify-between text-[11px] font-semibold">
               <span className="shrink-0 rounded-full bg-accent px-2 py-0.5 text-accent-foreground">Lv.24</span>
-              <span className="truncate text-muted-foreground">٢٤٨٠/٣٠٠٠ نقطة</span>
+              <span className="min-w-0 flex-1 truncate text-left text-muted-foreground">٢٤٨٠/٣٠٠٠ نقطة</span>
             </div>
             <div className="h-2 overflow-hidden rounded-full bg-secondary">
               <div className="h-full rounded-full bg-brand" style={{ width: `${levelProgress * 100}%` }} />
