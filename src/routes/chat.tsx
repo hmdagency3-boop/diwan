@@ -10,10 +10,10 @@ import live4 from "@/assets/live4.jpg";
 export const Route = createFileRoute("/chat")({
   head: () => ({
     meta: [
-      { title: "الدردشات — لايفي" },
-      { name: "description", content: "رسائلك ومحادثاتك مع المضيفين والأصدقاء على لايفي." },
-      { property: "og:title", content: "الدردشات — لايفي" },
-      { property: "og:description", content: "رسائلك ومحادثاتك على لايفي." },
+      { title: "الدردشات — Diwan" },
+      { name: "description", content: "رسائلك ومحادثاتك مع المضيفين والأصدقاء على Diwan." },
+      { property: "og:title", content: "الدردشات — Diwan" },
+      { property: "og:description", content: "رسائلك ومحادثاتك على Diwan." },
     ],
   }),
   component: ChatPage,
@@ -77,7 +77,7 @@ function ChatPage() {
           <li className="flex items-center gap-3 rounded-2xl p-2 hover:bg-secondary">
             <span className="grid size-14 shrink-0 place-items-center rounded-full bg-brand text-primary-foreground"><Megaphone className="size-6" /></span>
             <div className="min-w-0 flex-1">
-              <p className="font-bold">فريق لايفي <span className="mr-1 rounded-full bg-accent px-1.5 py-0.5 text-[10px] text-accent-foreground">رسمي</span></p>
+              <p className="font-bold">فريق Diwan <span className="mr-1 rounded-full bg-accent px-1.5 py-0.5 text-[10px] text-accent-foreground">رسمي</span></p>
               <p className="truncate text-sm text-muted-foreground">مهرجان الخميس الكبير بدأ! 🎉</p>
             </div>
             <span className="text-xs text-muted-foreground">١٠ د</span>
