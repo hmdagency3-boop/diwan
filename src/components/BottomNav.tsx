@@ -13,9 +13,9 @@ export function BottomNav() {
         <Link to="/chat" className={cls} activeProps={{ className: "text-primary" }}>
           <MessageCircle className="size-5" />دردشة
         </Link>
-        <button className={cls}>
+        <Link to="/me" className={cls} activeProps={{ className: "text-primary" }}>
           <User className="size-5" />أنا
-        </button>
+        </Link>
       </div>
     </footer>
   );
