@@ -75,7 +75,7 @@ function MePage() {
             <div className="min-w-0 flex-1 pt-1">
               <h1 className="flex items-center gap-1.5 font-display text-xl font-extrabold">
                 <span className="truncate">يوسف الصباح</span>
-                <BadgeCheck className="size-5 shrink-0 text-primary" aria-label "حساب موثّق" />
+                <BadgeCheck className="size-5 shrink-0 text-primary" aria-label="حساب موثّق" />
               </h1>
               <button className="mt-1 flex items-center gap-1 rounded-full bg-secondary px-2.5 py-1 text-xs text-muted-foreground transition hover:bg-secondary/70">
                 ID: 8820461 <Copy className="size-3" />
