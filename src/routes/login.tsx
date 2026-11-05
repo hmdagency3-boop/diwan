@@ -1,7 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { Eye, EyeOff, Lock, Phone, Mail } from "lucide-react";
-import cover from "@/assets/live1.jpg";
 
 export const Route = createFileRoute("/login")({
   head: () => ({
